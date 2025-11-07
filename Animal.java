@@ -29,7 +29,13 @@ public class Animal {
 	}
 
 	public void setenergia(int energia) {
-		this.energia = energia;
+		if (energia > 100) {
+			this.energia = 100;
+		} else if (energia < 0) {
+			this.energia = 0;
+		} else {
+			this.energia = energia;
+		}
 	}
 
 	public int getsaude() {
@@ -37,7 +43,13 @@ public class Animal {
 	}
 
 	public void setsaude(int saude) {
-		this.saude = saude;
+		if (saude > 100) {
+			this.saude = 100;
+		} else if (saude < 0) {
+			this.saude = 0;
+		} else {
+			this.saude = saude;
+		}
 	}
 
 	public int getfelicidade() {
@@ -45,7 +57,13 @@ public class Animal {
 	}
 
 	public void setfelicidade(int felicidade) {
-		this.felicidade = felicidade;
+		if (felicidade > 100) {
+			this.felicidade = 100;
+		} else if (felicidade < 0) {
+			this.felicidade = 0;
+		} else {
+			this.felicidade = felicidade;
+		}
 	}
 
 	public int gethigiene() {
@@ -53,40 +71,44 @@ public class Animal {
 	}
 
 	public void sethigiene(int higiene) {
-		this.higiene = higiene;
+		if (higiene > 100) {
+			this.higiene = 100;
+		} else if (higiene < 0) {
+			this.higiene = 0;
+		} else {
+			this.higiene = higiene;
+		}
 	}
 
 	public void brincar() {
 		setfelicidade(felicidade + 10);
 		setenergia(energia - 5);
 		sethigiene(higiene - 5);
-		System.out.println("brincou e está feliz");
+		System.out.println(nome + " brincou e está feliz!");
 	}
 
 	public void comer() {
 		setsaude(saude + 10);
 		setenergia(energia + 10);
-		System.out.println(nome + " está alimentado");
+		System.out.println(nome + " está alimentado!");
 	}
 
 	public void limpar() {
-		sethigiene(100);
 		sethigiene(higiene + 10);
-		System.out.println(nome + " tomou banho e está limpo");
+		System.out.println(nome + " tomou banho e está limpo!");
 	}
 
 	public void dormir() {
-		setenergia(100);
 		setenergia(energia + 20);
-		System.out.println(nome + " dormiu e está descansado");
-
+		System.out.println(nome + " dormiu e está descansado!");
 	}
 
 	public void mostrasituação() {
+		System.out.println("------ SITUAÇÃO DE " + nome.toUpperCase() + " ------");
 		System.out.println("Energia: " + energia);
 		System.out.println("Saúde: " + saude);
 		System.out.println("Felicidade: " + felicidade);
 		System.out.println("Higiene: " + higiene);
-
+		System.out.println("----------------------------------");
 	}
 }
